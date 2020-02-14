@@ -1,3 +1,4 @@
+/* Made by "jeewoo1025 */
 /* Standard error macro for reporting API errors */
 #include <Windows.h>
 #include <stdio.h>
@@ -43,7 +44,7 @@ main()
 	cls(handle);
 	PlaySound(TEXT("HappyDay (2).wav"), NULL, SND_ASYNC | SND_LOOP);
 
-	print_frame(handle); //frame Ãâ·Â
+	print_frame(handle); //frame ì¶œë ¥
 	display_total_point(handle, 0);
 
 	srand((unsigned)time(NULL)); 
@@ -52,13 +53,13 @@ main()
 	{
 		int point = 0;
 
-		move_location();			//À§Ä¡ÀÌµ¿
+		move_location();			//ìœ„ì¹˜ì´ë™
 
-		input_first_value(handle);	//ÀÔ·Â
+		input_first_value(handle);	//ì…ë ¥
 
-		display_frame(handle);		//Ãâ·Â
+		display_frame(handle);		//ì¶œë ¥
 
-		point = get_point(handle, max_msec); //Å°º¸µå ÀÔ·ÂÇØ¼­ Á¡¼ö ¾ò±â
+		point = get_point(handle, max_msec); //í‚¤ë³´ë“œ ì…ë ¥í•´ì„œ ì ìˆ˜ ì–»ê¸°
 		if (point > 0)
 		{
 			total_point += point;
@@ -175,7 +176,7 @@ void print_frame(HANDLE handle)
 
 void move_location()
 {
-	//°¨¼ÒÇÏ´Â ¹æÇâ
+	//ê°ì†Œí•˜ëŠ” ë°©í–¥
 	int x, y;
 
 	for (y = (MAX_LINES-1); y > 0; y--)
@@ -192,19 +193,19 @@ void move_location()
 
 void input_first_value(HANDLE handle)
 {
-	//4Ä­ Áß¿¡ ÇÏ³ª¸¸ ÀÖ¾î¾ß µÈ´Ù
+	//4ì¹¸ ì¤‘ì— í•˜ë‚˜ë§Œ ìˆì–´ì•¼ ëœë‹¤
 	int rnd_space, rnd_point;
 
 	rnd_space = rand() % 4; //rnd_space : 0~3
 	frame[0][rnd_space] = 1; //exist_box = 1, no_exist_box = 0
 
-	rnd_point = rand() % 9 + 1; // rnd = 1~10, ÀÌ rnd´Â Á¡¼öÀÌ´Ù.
-	frame[0][4] = rnd_point; //Á¡¼ö
+	rnd_point = rand() % 9 + 1; // rnd = 1~10, ì´ rndëŠ” ì ìˆ˜ì´ë‹¤.
+	frame[0][4] = rnd_point; //ì ìˆ˜
 
-	frame[0][5] = 0; //shape °ª ÃÊ±âÈ­
+	frame[0][5] = 0; //shape ê°’ ì´ˆê¸°í™”
 	/////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////
-	//½ÃÇè º¸´Â °Í
+	//ì‹œí—˜ ë³´ëŠ” ê²ƒ
 	int i;
 	COORD pos;
 
@@ -226,7 +227,7 @@ void input_first_value(HANDLE handle)
 
 void display_frame(HANDLE handle)
 {
-  //ÇöÀç À§Ä¡¸¦ ±âÁØÀ¸·Î, ¿ª½Ã °¨¼ÒÇÏ´Â ¹æÇâÀ¸·Î
+  //í˜„ì¬ ìœ„ì¹˜ë¥¼ ê¸°ì¤€ìœ¼ë¡œ, ì—­ì‹œ ê°ì†Œí•˜ëŠ” ë°©í–¥ìœ¼ë¡œ
 	int y;
 
 	for (y = (MAX_LINES-1); y >= 0; y--)
@@ -240,7 +241,7 @@ void display_frame(HANDLE handle)
 
 char get_key()
 {
-	if (_kbhit()) //Å°¸¦ ´­·¶À¸¸é 0ÀÌ ¾Æ´Ñ °ª ¹İÈ¯
+	if (_kbhit()) //í‚¤ë¥¼ ëˆŒë €ìœ¼ë©´ 0ì´ ì•„ë‹Œ ê°’ ë°˜í™˜
 		return _getch();
 
 	return '\0';
@@ -248,7 +249,7 @@ char get_key()
 
 int get_point(HANDLE handle, int max_msec)
 {
-	//Å°¸¦ ÀÔ·Â¹Ş°í point Ç¥½Ã+Ãâ·Â
+	//í‚¤ë¥¼ ì…ë ¥ë°›ê³  point í‘œì‹œ+ì¶œë ¥
 	int point = 0;
 	int wait_msec = 0;
 	char key = 0;
@@ -257,7 +258,7 @@ int get_point(HANDLE handle, int max_msec)
 	{
 		int curr_wait_msec;
 
-		key = get_key(); //Å° ÀÔ·Â
+		key = get_key(); //í‚¤ ì…ë ¥
 
 		if (key == 'h')
 		{
@@ -342,7 +343,7 @@ void display_line(HANDLE handle, int y, int shape)
 	{
 		printf("\u2502  ");
 
-		if (frame[y][x] == 1)		//box°¡ Á¸ÀçÇÑ´Ù¸é
+		if (frame[y][x] == 1)		//boxê°€ ì¡´ì¬í•œë‹¤ë©´
 		{
 			if (shape == 0)
 				printf("\u25A0\u25A0\u25A0\u25A0");
