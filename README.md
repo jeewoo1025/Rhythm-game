@@ -42,4 +42,4 @@ If you want to know **the actual demo**, please refer to the YouTube link below.
 
 **실제 시연 영상**이 궁금하다면 아래의 유튜브 링크를 참조하세요~:)
 
-https://www.youtube.com/watch?v=08uUtbJc9VA
+[C언어로 만든 리듬게임(Rhythm game in C language)](https://www.youtube.com/watch?v=08uUtbJc9VA)
