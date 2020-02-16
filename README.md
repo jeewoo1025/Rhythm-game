@@ -1,8 +1,13 @@
 # Rhythm-game
 * Rhythm game in C langauage    
 
-* C언어로 만든 리듬게임      
+* C언어로 만든 리듬게임    
 
+
+
+
+
+![frame](./frame.png)
             
 Using console coordinates and Unicode, the basic rhythm game frame was created. (See Unicode Table in Wikipedia)
 The full flow is the order in which "move notes → enter the first value → print full screen(note and frame) →  keyborad input and point calculation" using the "while" func.
